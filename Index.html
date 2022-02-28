@@ -1,523 +1,62 @@
 <!DOCTYPE html>
-<!-- === Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>
-  h4{
-    color : deeppink;
-    font-size: 40px;
-    font-family: "Lucida Console", "Courier Nefont-familyw"
-  }
-    
-  </style>
-  <style>
-    h1{
-      color: whitesmoke;
-      font-family: "Lucida Console", "Courier Nefont-familyw", monospace;
-      font-size: 35px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
   <style>
     h2{
-      color: ghostwhite;
       font-size: 50px;
-      text-align: center;
+      color: hotpink;
     }
   </style>
   <style>
     h3{
-      color: ghostwhite;
+      text-align: center;
       font-size: 50px;
+      color: hotpink;
+      font-family: "Lucida Console", "Courier Nefont-familyw"
     }
   </style>
-<style>
-  /* ===== Google Font Import - Poppins ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.4s ease;;
-}
-
-
-/* ===== Colours ===== */
-:root{
-    --body-color: #E4E9F7;
-    --nav-color: #ff30a5;
-    --side-nav: #010718;
-    --text-color: #FFF;
-    --search-bar: #F2F2F2;
-    --search-text: #010718;
-}
-
-body{
-    height: 100vh;
-    background-color: var(--body-color);
-}
-
-body.dark{
-    --body-color: #18191A;
-    --nav-color: #242526;
-    --side-nav: #242526;
-    --text-color: #CCC;
-    --search-bar: #242526;
-}
-
-nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 70px;
-    width: 100%;
-    background-color: var(--nav-color);
-    z-index: 100;
-}
-
-body.dark nav{
-    border: 1px solid #393838;
-
-}
-
-nav .nav-bar{
-    position: relative;
-    height: 100%;
-    max-width: 1000px;
-    width: 100%;
-    background-color: var(--nav-color);
-    margin: 0 auto;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav .nav-bar .sidebarOpen{
-    color: var(--text-color);
-    font-size: 25px;
-    padding: 5px;
-    cursor: pointer;
-    display: none;
-}
-
-nav .nav-bar .logo a{
-    font-size: 25px;
-    font-weight: 500;
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.menu .logo-toggle{
-    display: none;
-}
-
-.nav-bar .nav-links{
-    display: flex;
-    align-items: center;
-}
-
-.nav-bar .nav-links li{
-    margin: 0 5px;
-    list-style: none;
-}
-
-.nav-links li a{
-    position: relative;
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 10px;
-}
-
-.nav-links li a::before{
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background-color: var(--text-color);
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.nav-links li:hover a::before{
-    opacity: 1;
-}
-
-.nav-bar .darkLight-searchBox{
-    display: flex;
-    align-items: center;
-}
-
-.darkLight-searchBox .dark-light,
-.darkLight-searchBox .searchToggle{
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 5px;
-}
-
-.dark-light i,
-.searchToggle i{
-    position: absolute;
-    color: var(--text-color);
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dark-light i.sun{
-    opacity: 0;
-    pointer-events: none;
-}
-
-.dark-light.active i.sun{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.dark-light.active i.moon{
-    opacity: 0;
-    pointer-events: none;
-}
-
-.searchToggle i.cancel{
-    opacity: 0;
-    pointer-events: none;
-}
-
-.searchToggle.active i.cancel{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.searchToggle.active i.search{
-    opacity: 0;
-    pointer-events: none;
-}
-
-.searchBox{
-    position: relative;
-}
-
-.searchBox .search-field{
-    position: absolute;
-    bottom: -85px;
-    right: 5px;
-    height: 50px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    background-color: var(--nav-color);
-    padding: 3px;
-    border-radius: 6px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.searchToggle.active ~ .search-field{
-    bottom: -74px;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.search-field::before{
-    content: '';
-    position: absolute;
-    right: 14px;
-    top: -4px;
-    height: 12px;
-    width: 12px;
-    background-color: var(--nav-color);
-    transform: rotate(-45deg);
-    z-index: -1;
-}
-
-.search-field input{
-    height: 100%;
-    width: 100%;
-    padding: 0 45px 0 15px;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--search-text);
-    background-color: var(--search-bar);
-}
-
-body.dark .search-field input{
-    color: var(--text-color);
-}
-
-.search-field i{
-    position: absolute;
-    color: var(--nav-color);
-    right: 15px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-body.dark .search-field i{
-    color: var(--text-color);
-}
-
-@media (max-width: 790px) {
-    nav .nav-bar .sidebarOpen{
-        display: block;
+  <style>
+    h1{
+      color: white;
+      font-size: 50px;
+      background-color: hotpink;
+      font-family: "Lucida Console", "Courier Nefont-familyw"
     }
+  </style>
+  
+  <!-- HTML -->
+  
 
-    .menu{
-        position: fixed;
-        height: 100%;
-        width: 320px;
-        left: -100%;
-        top: 0;
-        padding: 20px;
-        background-color: var(--side-nav);
-        z-index: 100;
-        transition: all 0.4s ease;
-    }
-
-    nav.active .menu{
-        left: -0%;
-    }
-
-    nav.active .nav-bar .navLogo a{
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-
-    .menu .logo-toggle{
-        display: block;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .logo-toggle .siderbarClose{
-        color: var(--text-color);
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .nav-bar .nav-links{
-        flex-direction: column;
-        padding-top: 30px;
-    }
-
-    .nav-links li a{
-        display: block;
-        margin-top: 20px;
-    }
-}
-
-</style>
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="style.css">
-        
-    <!-- ===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
-    <!--<title>Responsive Navigation Menu Bar</title>-->
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav>
-        <div class="nav-bar">
-            <i class='bx bx-menu sidebarOpen' ></i>
-            <span class="logo navLogo"><a href="#">Chaøs Pùnks</a></span>
-
-            <div class="menu">
-                <div class="logo-toggle">
-                    <span class="logo"><a href="#">Chaøs Pùnks</a></span>
-                    <i class='bx bx-x siderbarClose'></i>
-                </div>
-
-                <ul class="nav-links">
-                    <li><a href="Index.html">Home</a></li>
-                    <li><a href="#Traits">Traits & Rarity</a></li>
-                    <li><a href="#Roadmap">Roadmap</a></li>
-                    <li><a href="https://singular.rmrk.app/collections/0cf6f55eafe552dc05-CHN">Singular</a></li>
-                    <li><a href="https://twitter.com/chaos_punks?t=sByd2rApicI9kirkolqjCQ&s=09">Social</a></li>
-                </ul>
-            </div>
-
-            <div class="darkLight-searchBox">
-                <div class="dark-light">
-                    <i class='bx bx-moon moon'></i>
-                    <i class='bx bx-sun sun'></i>
-                </div>
-
-                <div class="searchBox">
-                   <div class="searchToggle">
-                    <i class='bx bx-x cancel'></i>
-                    <i class='bx bx-search search'></i>
-                   </div>
-
-                    <div class="search-field">
-                        <input type="text" placeholder= "Punks number # ">
-                       <i class='bx bx-search'></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-
-<script>
- 
-const body = document.querySelector("body"),
-      nav = document.querySelector("nav"),
-      modeToggle = document.querySelector(".dark-light"),
-      searchToggle = document.querySelector(".searchToggle"),
-      sidebarOpen = document.querySelector(".sidebarOpen"),
-      siderbarClose = document.querySelector(".siderbarClose");
-
-      let getMode = localStorage.getItem("mode");
-          if(getMode && getMode === "dark-mode"){
-            body.classList.add("dark");
-          }
-
-// js code to toggle dark and light mode
-      modeToggle.addEventListener("click" , () =>{
-        modeToggle.classList.toggle("active");
-        body.classList.toggle("dark");
-
-        // js code to keep user selected mode even page refresh or file reopen
-        if(!body.classList.contains("dark")){
-            localStorage.setItem("mode" , "light-mode");
-        }else{
-            localStorage.setItem("mode" , "dark-mode");
-        }
-      });
-
-// js code to toggle search box
-        searchToggle.addEventListener("click" , () =>{
-        searchToggle.classList.toggle("active");
-      });
- 
-      
-//   js code to toggle sidebar
-sidebarOpen.addEventListener("click" , () =>{
-    nav.classList.add("active");
-});
-
-body.addEventListener("click" , e =>{
-    let clickedElm = e.target;
-
-    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
-        nav.classList.remove("active");
-    }
-});
-
-</script>
 
 <body>
-  
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <img src="GIF-220225_122333.gif" alt="" style="flex: 0 0 auto ;
-  width: 100% ;"/>
-  <h2>Expéct Chaøs Puñks</h2>
-  <br>
-  <br>
-  <h2>What are Chaos Punks ?</h2>
-  <br>
-  <h1>Chaøs Puñks are 225 punks on kusama canary Blockchain Each punk is rare different & Expensive & limited Each punks is handmaded and beautiful with having different traits and rarites</h1> <br>
-  <h4>Each Chaøs Pùnk Owner is eligible for getting AirDrop of Dot Punk nfts on Polkadot Blockchain</h4>
-  <br>
-  <br>
-  <h2>// How to buy Chaøs Puñks //</h2>
-  <br>
-  <br>
-  <h1>For Buying Chaøs Puñks Go to <a href="https://singular.rmrk.app/collections/0cf6f55eafe552dc05-CHN" style="color: hotpink"">Singular</a> and Buy your Favorite Chaos Punks </h1>
-  <br>
-  <section class="trait" id="Traits">
-  <br>
-  <br>
-   <br>
-  <h2>// Traits & Rarities //</h2>
-    </section>
-  <br>
-  <br>
-  <br>
-  <a href="Punks 1">
-  <img src="IMG_20220226_114244.jpg" width="470px"
+ <h2>Chaøs Pùnk #3 // Traits //</h2>
+ <hr>
+ <br>
+ <a href="https://singular.rmrk.app/collections/0cf6f55eafe552dc05-CHP"><
+  <img src="IMG_20220217_194807.jpg" width="950px"
   </a>
-  <a href="Punks 2">
-  <img src="IMG_20220226_114703.jpg" width="470px" 
-  </a>
-  <a href="Punks 3">
-  <img src="IMG_20220226_114715.jpg" width="415px"
-  </a>
-  <br>
-  <br>
-  
-  <br>
-  <br>
-   
-  <br>
-  <br>
-  <br>
-  <br>
-  <section class="Road" id="Roadmap">
-  <br>
-  <h2> //Roadmap// </h2>
-  <br>
-  </section>
-  <br>
-  <h2>Chaøs Punks 225 Punks mint </h2> <br>
-  <h2>Dot Punks nfts AirDrop to Chaøs Punks Owners</h2><br>
-  <h2>Chaøs Pùnks Partnership with Chaos Dao Apes</h2><br>
-  <h2>Chaøs Pùnks Dao </h2><br>
-
-      </section>
-  <br>
- 
-
-  
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <h2> //Chaøs Pùnks Created By Chaøs Labs// </h2>
-  
-  
-
   <hr>
-  <a href="https://twitter.com/chaos_punks?t=6KFrnC1KiKgB9FQtd1eNrw&s=09">
-         <img alt="Chaøs Pùnks" src="IMG_20220225_114732.jpg"
-         width=300" height="">
-      </a>
-      <a href= "https://singular.rmrk.app/collections/0cf6f55eafe552dc05-CHN">
-         <img alt="Chaøs Pùnks" src="tg_main.png"
-         width=300" height="">
-         <a href="https://singular.rmrk.app/collections/0cf6f55eafe552dc05-CHN">
-         <img alt="Chaøs Pùnks" src="IMG_20220225_120631.jpg"
-         width=300" height="">
-      </a>
-      </a>
-.     <h1>© all copyrights reserved by Chaos Punks</h1>
-</body>
-
-     <script src="main.js"></script>
+  <br>
+  <h1><a href="https://singular.rmrk.app/collections/0cf6f55eafe552dc05-CHP" style="color: white"">//View on Singular///</a></h1>
+  <br>
+  <br>
+  <br>
+  <h3>////Background Color Pink = [ 100% ]//</h3>
+    <h3>////Cap = Khala Black Radioactive Blue [1%]//</h3>
+      <h3>//Zombie = Radioactive Blue Sliva [6%]//</h3>
+        <h3>//Eye = Radio Active Blue [20%]//</h3>
+          <h3>/// Mouth = Zombie [10%]//</h3>
+            <h3>// Wearables = NON</h3>
+            <h3>///Chaøs = // 95% //</h3>
+  <!-- Project -->
+  <script src="main.js"></script>
 </body>
 </html>
